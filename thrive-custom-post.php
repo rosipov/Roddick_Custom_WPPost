@@ -20,8 +20,8 @@ function rdk_custom_post_type() {
             ),
                 'public'      => true,
                 'has_archive' => true,
-                'rewrite' => array( 'slug' => 'thrive'), //'thrive' slug - for branding
-                'show_in_rest' => true, 
+                'rewrite' => array( 'slug' => 'thrive_global'), //'thrive_global' slug - for branding
+                'show_in_rest' => true,  //We want this available to the REST api 
                 'supports' => array('editor', 'title'), //include the gutenberg editor, title field
         )
     );
