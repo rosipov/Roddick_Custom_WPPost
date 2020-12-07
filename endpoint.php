@@ -1,6 +1,6 @@
 <?php
 
-// endpoint.php is where the plugin code handles the custom endpoint task of return all of the rdk_post meta values in JSON :w
+// endpoint.php is where the plugin code handles the custom endpoint logic to return all of the rdk_post meta values in JSON
 
 /* Get and return all of the posts' metavalues of the custom type Roddick post aka "rdk_post" 
  *
@@ -22,7 +22,7 @@ function get_all_rdk_posts_metavalue($data) {
         } 
     }
 
-    $response = new WP_REST_RESPONSE($result);
+    $response = new WP_REST_RESPONSE($result); //response will be 200 regardless whether empty data set or not
     return $response;
 }
 
