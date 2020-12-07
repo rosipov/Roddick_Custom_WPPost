@@ -3,7 +3,7 @@
 
 
 ## Description
-This plugin enables the user to create a custom post type ("Custom Roddick Post") within Wordpress. This custom post type allows the user to enter an associated metavalue which is stored for later use. The input field is found at the bottom of the the "Document" tab under "Roddick's Custom Metabox" section within the Gutenberg editor.
+This plugin enables the user to create a custom post type ("Custom Roddick Post") within Wordpress. This custom post type allows the user to enter an associated metavalue which is stored for later use. The input field is found at the bottom of the "Document" tab under "Roddick's Custom Metabox" section within the Gutenberg editor.
 
 Finally, this plugin leverages the use of the Wordpress REST API and registers a custom endpoint route which will provide the user with a JSON encoded array of all of the metavalues for all Custom Roddick Posts. Once the plugin is installed, it can be reached at `https://[my.url]/wp-json/thrive_global/roddick_posts`
 
