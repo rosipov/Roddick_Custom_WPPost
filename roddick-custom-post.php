@@ -18,7 +18,6 @@ include 'endpoint.php';
 /* Register our custom post type function with the appropriate arguments
  * @return void 
  */
-if (!function_exists('rdk_custom_post_type')) { 
     function rdk_custom_post_type() {
         register_post_type('rdk_post',
             array('labels'      => 
@@ -34,14 +33,12 @@ if (!function_exists('rdk_custom_post_type')) {
                 )
         );
     }
-}
 
 
 /* Generate the HTML for our metavalue input field, prepopulating it if the value already exists
  * @param array $post Post values 
  * @return html
  */
-if (!function_exists('rdk_metabox_html')) { 
     function rdk_metabox_html($post) {
         //get our existing meta value for this post (if it exists) 
         $existing_rdk_value = get_post_meta($post->ID, '_rdk_meta_key', true); 
@@ -50,12 +47,10 @@ if (!function_exists('rdk_metabox_html')) {
         <input type="text" id="rdk_meta_field" name="rdk_meta_field" value="<?php empty($existing_rdk_value) ? print(""):print($existing_rdk_value) ?>" class="metabox_string_field" 
         <?php
     }
-}
 
 /* Register meta input field.
  * @return void
  */
-if (!function_exists('rdk_add_meta_boxes')) { 
     function rdk_add_meta_boxes() {
         add_meta_box( 'rdk',
                       __( 'Roddick\'s Custom Metabox', 'rdk' ),
@@ -65,22 +60,19 @@ if (!function_exists('rdk_add_meta_boxes')) {
                       'high', 
                       'rdk_post' ); // The custom post type we just registered above
         }
-}
 
 /* Save the our custom meta value
  * @return void
  */
-if (!function_exists('rdk_save_postdata')) { 
-    function rdk_save_postdata($post_id) {
-        //typically one would perform data validation here
-        if (array_key_exists('rdk_meta_field', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_rdk_meta_key',
-                $_POST['rdk_meta_field'] //value
-            );
-        }
-    }
+function rdk_save_postdata($post_id) {
+//typically one would perform data validation here
+if (array_key_exists('rdk_meta_field', $_POST)) {
+    update_post_meta(
+        $post_id,
+        '_rdk_meta_key',
+        $_POST['rdk_meta_field'] //value
+    );
+}
 }
 
 add_action('add_meta_boxes', 'rdk_add_meta_boxes');
